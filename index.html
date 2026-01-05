@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junker Umzüge - Ihr Umzugsunternehmen in Berlin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--gray);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 0.25rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .nav-links li {
+            list-style: none;
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: block;
+            cursor: pointer;
+        }
+
+        .hamburger .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--dark);
+            transition: var(--transition);
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: 6rem;
+            background-color: var(--dark);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(30, 41, 59, 0.8), rgba(30, 41, 59, 0.8)), url('https://picsum.photos/1920/1080?random=1') no-repeat center center/cover;
+            z-index: -1;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            color: var(--gray);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* About */
+        .about {
+            background-color: var(--light);
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        /* Services */
+        .services {
+            background-color: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Team */
+        .team {
+            background-color: var(--light);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .team-card {
+            background-color: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .team-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 1.5rem;
+        }
+
+        .team-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .team-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Pricing */
+        .pricing {
+            background-color: var(--white);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .price-card {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .price-card.popular {
+            border: 2px solid var(--primary);
+        }
+
+        .price-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--gray);
+        }
+
+        .price-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .price-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .price-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-author h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-author p {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* FAQ */
+        .faq {
+            background-color: var(--white);
+        }
+
+        .faq-item {
+            background-color: var(--light);
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-question h3 {
+            margin-bottom: 0;
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-answer {
+            padding-bottom: 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* Contact */
+        .contact {
+            background-color: var(--light);
+        }
+
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.25rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-logo span {
+            color: var(--primary);
+        }
+
+        .footer-text {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-links-footer {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links-footer a {
+            color: var(--gray);
+            font-size: 1.5rem;
+        }
+
+        .social-links-footer a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid #334155;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: flex;
+            }
+
+            .hamburger {
+                display: none;
+            }
+
+            .hero-content {
+                flex-direction: row;
+                text-align: left;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .hero-content .hero-text {
+                flex: 1;
+            }
+
+            .hero-content .hero-image {
+                flex: 1;
+            }
+
+            .hero-image img {
+                border-radius: 0.5rem;
+            }
+
+            .about-content {
+                flex-direction: row;
+                gap: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-content {
+                flex-direction: row;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .pricing-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var forms = document.querySelectorAll('form');
+  forms.forEach(function(form) {
+    if (form.querySelector('input[type="email"]') && form.querySelector('textarea')) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var fd = new FormData(form);
+        var data = {
+          name: fd.get('name') || fd.get('Name') || '',
+          email: fd.get('email') || fd.get('Email') || '',
+          phone: fd.get('phone') || fd.get('telefon') || '',
+          message: fd.get('message') || fd.get('nachricht') || '',
+          firma: 'Junker Umzüge',
+          demo_url: window.location.href
+        };
+        var btn = form.querySelector('button[type="submit"], input[type="submit"]');
+        if (btn) btn.disabled = true;
+        fetch('https://DEINE-N8N-URL/webhook/kontakt-formular', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(data)
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(res) {
+          alert(res.success ? 'Danke! Wir melden uns.' : 'Fehler: ' + res.message);
+          if (res.success) form.reset();
+        })
+        .catch(function() { alert('Fehler. Bitte info@wzvision.de kontaktieren.'); })
+        .finally(function() { if (btn) btn.disabled = false; });
+      });
+    }
+  });
+});
+</script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Junker <span>Umzüge</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Über uns</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Preise</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Stressfreier Umzug in Berlin</h1>
+                    <p>Junker Umzüge ist Ihr zuverlässiger Partner für alle Umzugsdienstleistungen in Berlin und Umgebung. Mit über 10 Jahren Erfahrung sorgen wir für einen reibungslosen und professionellen Umzug.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn">Jetzt anfragen</a>
+                        <a href="#services" class="btn btn-outline">Unsere Services</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://picsum.photos/600/400?random=2" alt="Umzugshelfer beim Tragen von Möbeln">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Über uns</h2>
+                <p>Warum Junker Umzüge?</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Ihr Umzugsunternehmen in Berlin</h3>
+                    <p>Seit 2010 unterstützen wir Privatpersonen und Unternehmen bei ihren Umzügen in Berlin. Unser Team aus erfahrenen Umzugshelfern und professionellen Fahrern sorgt dafür, dass Ihr Umzug schnell, sicher und stressfrei verläuft.</p>
+                    <p>Wir bieten maßgeschneiderte Lösungen für jeden Umzug - ob kleiner Haushaltsumzug oder großer Firmenumzug. Mit modernster Ausrüstung und sorgfältiger Planung sind wir Ihr idealer Partner für den perfekten Umzug.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h4>10+</h4>
+                            <p>Jahre Erfahrung</p>
+                        </div>
+                        <div class="stat">
+                            <h4>5000+</h4>
+                            <p>Zufriedene Kunden</p>
+                        </div>
+                        <div class="stat">
+                            <h4>24/7</h4>
+                            <p>Support</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://picsum.photos/600/400?random=3" alt="Junker Umzüge Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Unsere Services</h2>
+                <p>Alles aus einer Hand</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Privatumzüge</h3>
+                    <p>Professionelle Unterstützung bei Ihrem Wohnungs- oder Hausumzug in Berlin und Umgebung.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Firmenumzüge</h3>
+                    <p>Schnelle und effiziente Büroumzüge mit minimaler Unterbrechung Ihres Geschäftsbetriebs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3>Verpackungsservice</h3>
+                    <p>Sorgfältige Verpackung Ihrer Möbel und Wertgegenstände mit professionellem Material.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Transportlogistik</h3>
+                    <p>Zuverlässiger Transport Ihrer Güter mit unserer modernen Fahrzeugflotte.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h3>Einlagerung</h3>
+                    <p>Sichere und flexible Lagerlösungen für Ihre Möbel und Gegenstände.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Internationale Umzüge</h3>
+                    <p>Weltweiter Umzugsservice mit Partnern in über 50 Ländern.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Unser Team</h2>
+                <p>Erfahrene Umzugsprofis</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="https://picsum.photos/400/400?random=4" alt="Markus Junker">
+                    <div class="team-info">
+                        <h3>Markus Junker</h3>
+                        <p>Geschäftsführer</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://picsum.photos/400/400?random=5" alt="Sarah Müller">
+                    <div class="team-info">
+                        <h3>Sarah Müller</h3>
+                        <p>Umzugskoordinatorin</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://picsum.photos/400/400?random=6" alt="Thomas Bauer">
+                    <div class="team-info">
+                        <h3>Thomas Bauer</h3>
+                        <p>Umzugsleiter</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Unsere Preise</h2>
+                <p>Transparente Preisgestaltung</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Kleiner Umzug</h3>
+                    <p>1-2 Zimmer</p>
+                    <div class="price">ab 299€<span>/pauschal</span></div>
+                    <ul class="price-features">
+                        <li>2 Umzugshelfer</li>
+                        <li>Kleiner Transporter</li>
+                        <li>2 Stunden Arbeitszeit</li>
+                        <li>Grundversicherung</li>
+                        <li>Verpackungsmaterial</li>
+                    </ul>
+                    <a href="#contact" class="btn">Jetzt buchen</a>
+                </div>
+                <div class="price-card popular">
+                    <h3>Mittelgroßer Umzug</h3>
+                    <p>3-4 Zimmer</p>
+                    <div class="price">ab 499€<span>/pauschal</span></div>
+                    <ul class="price-features">
+                        <li>3 Umzugshelfer</li>
+                        <li>Mittelgroßer LKW</li>
+                        <li>4 Stunden Arbeitszeit</li>
+                        <li>Erweiterte Versicherung</li>
+                        <li>Verpackungsmaterial</li>
+                        <li>Möbelmontage</li>
+                    </ul>
+                    <a href="#contact" class="btn">Jetzt buchen</a>
+                </div>
+                <div class="price-card">
+                    <h3>Großer Umzug</h3>
+                    <p>5+ Zimmer</p>
+                    <div class="price">Individuell<span></span></div>
+                    <ul class="price-features">
+                        <li>Individuelle Planung</li>
+                        <li>Großer LKW oder mehrere Fahrzeuge</li>
+                        <li>Vollständige Betreuung</li>
+                        <li>Premium-Versicherung</li>
+                        <li>Komplettservice</li>
+                        <li>Sonderwünsche möglich</li>
+                    </ul>
+                    <a href="#contact" class="btn">Anfrage stellen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Kundenstimmen</h2>
+                <p>Das sagen unsere Kunden</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Der Umzug mit Junker Umzüge war perfekt organisiert. Das Team war pünktlich, freundlich und hat alles sehr sorgfältig verpackt und transportiert. Ich kann das Unternehmen nur weiterempfehlen!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://picsum.photos/100/100?random=7" alt="Anna Schmidt">
+                        <div>
+                            <h4>Anna Schmidt</h4>
+                            <p>Berlin</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Unser Firmenumzug wurde professionell und schnell abgewickelt. Die Kommunikation war hervorragend und alle Mitarbeiter haben sehr gut zusammengearbeitet. Vielen Dank für den reibungslosen Ablauf!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://picsum.photos/100/100?random=8" alt="Michael Wagner">
+                        <div>
+                            <h4>Michael Wagner</h4>
+                            <p>Geschäftsführer, TechSolutions GmbH</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Ich war wirklich beeindruckt von der Sorgfalt, mit der das Team meine wertvollen Möbel behandelt hat. Der Umzug war stressfrei und alles ist heil angekommen. Preis-Leistung ist top!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://picsum.photos/100/100?random=9" alt="Lisa Bauer">
+                        <div>
+                            <h4>Lisa Bauer</h4>
+                            <p>Berlin</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Von der ersten Anfrage bis zum letzten Karton war alles perfekt. Die Jungs haben sogar meine schweren Möbel auseinander- und wieder aufgebaut. Super Service!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://picsum.photos/100/100?random=10" alt="Peter Müller">
+                        <div>
+                            <h4>Peter Müller</h4>
+                            <p>Berlin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Häufige Fragen</h2>
+                <p>Antworten auf Ihre Fragen</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Wie weit im Voraus sollte ich meinen Umzug buchen?</h3>
+                        <i class="fas fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Wir empfehlen, Ihren Umzug mindestens 2-4 Wochen im Voraus zu buchen, besonders in der Hauptsaison (Frühling und Sommer). Für kurzefristige Umzüge können Sie uns gerne kontaktieren - wir versuchen immer, eine Lösung zu finden.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Bietet ihr auch Verpackungsmaterial an?</h3>
+                        <i class="fas fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ja, wir bieten hochwertiges Verpackungsmaterial wie Kartons, Luftpolsterfolie, Packpapier und Klebeband an. Sie können dies entweder separat bestellen oder als Teil unseres Komplettservice-Pakets erhalten.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Wie lange dauert ein Umzug in der Regel?</h3>
+                        <i class="fas fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Die Dauer hängt von der Größe des Umzugs ab. Ein 2-Zimmer-Umzug dauert in der Regel 3-4 Stunden, während ein 4-Zimmer-Umzug etwa 6-8 Stunden in Anspruch nehmen kann. Bei der Planung berücksichtigen wir auch besondere Anforderungen wie Treppen oder enge Gassen.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Sind meine Möbel während des Umzugs versichert?</h3>
+                        <i class="fas fa-plus faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ja, alle Umzüge sind durch unsere Transportversicherung abgesichert. Für besonders wertvolle Gegenstände bieten wir zusätzlich eine erweiterte Versicherung an. Bitte informieren Sie uns im Voraus über besondere Wertgegenstände.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Kontakt</h2>
+                <p>Wir freuen uns auf Ihre Anfrage</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Junker Umzüge</h3>
+                    <p>Ihr Umzugsunternehmen in Berlin</p>
+                    <div class="contact-details">
+                        <div class="detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Musterstraße 123, 10115 Berlin</p>
+                        </div>
+                        <div class="detail">
+                            <i class="fas fa-phone"></i>
+                            <p>+49 (0)30 12345678</p>
+                        </div>
+                        <div class="detail">
+                            <i class="fas fa-envelope"></i>
+                            <p>info@junker-umzuege.de</p>
+                        </div>
+                        <div class="detail">
+                            <i class="fas fa-clock"></i>
+                            <p>Mo-Fr: 8:00 - 18:00 Uhr</p>
+                        </div>
+                    </div>
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.41700343989!2d13.372656!3d52.517037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDMwJzU4LjQiTiAxM8KwMjInMjQuMiJF!5e0!3m2!1sen!2sde!4v1620000000000!5m2!1sen!2sde" width="100%" height="300" style="border:0; border-radius: 0.5rem; box-shadow: var(--shadow);" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Kontaktformular</h3>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name*</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail*</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service*</label>
+                            <select id="service" name="service" required>
+                                <option value="">Bitte wählen</option>
+                                <option value="Privatumzug">Privatumzug</option>
+                                <option value="Firmenumzug">Firmenumzug</option>
+                                <option value="Verpackungsservice">Verpackungsservice</option>
+                                <option value="Einlagerung">Einlagerung</option>
+                                <option value="Internationale Umzüge">Internationale Umzüge</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Nachricht*</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Nachricht senden</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3 class="footer-logo">Junker <span>Umzüge</span></h3>
+                    <p class="footer-text">Ihr zuverlässiger Partner für stressfreie Umzüge in Berlin. Mit über 10 Jahren Erfahrung und einem engagierten Team sorgen wir für einen reibungslosen Ablauf.</p>
+                    <div class="social-links-footer">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Über uns</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#pricing">Preise</a></li>
+                        <li><a href="#contact">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Privatumzüge</a></li>
+                        <li><a href="#">Firmenumzüge</a></li>
+                        <li><a href="#">Verpackungsservice</a></li>
+                        <li><a href="#">Einlagerung</a></li>
+                        <li><a href="#">Internationale Umzüge</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Junker Umzüge. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+
+            question.addEventListener('click', () => {
+                const currentlyActive = document.querySelector('.faq-item.active');
+
+                if (currentlyActive && currentlyActive !== item) {
+                    currentlyActive.classList.toggle('active');
+                }
+
+                item.classList.toggle('active');
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+<div id="wz-banner" style="position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#1a365d,#2563eb);color:#fff;padding:20px;text-align:center;z-index:99999;box-shadow:0 -4px 20px rgba(0,0,0,.3);font-family:sans-serif">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:20px">
+    <div style="flex:1;min-width:280px">
+      <p style="margin:0;font-size:18px;font-weight:600">Gefällt Ihnen diese Demo?</p>
+      <p style="margin:5px 0 0;font-size:14px;opacity:.9">Erstellt von <strong>WZ Vision</strong></p>
+    </div>
+    <div style="display:flex;gap:12px">
+      <a href="mailto:info@wzvision.de?subject=Interesse%20Webseite%20Junker%20Umz%C3%BCge" style="padding:12px 28px;background:#fff;color:#1a365d;text-decoration:none;border-radius:8px;font-weight:600">Kontakt</a>
+      <a href="https://wzvision.de" target="_blank" style="padding:12px 28px;background:transparent;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;border:2px solid #fff">Mehr</a>
+    </div>
+  </div>
+  <p style="margin:15px 0 0;font-size:12px;opacity:.7">Demo bis 8.1.2026 | info@wzvision.de</p>
+</div>
+<div style="height:140px"></div>
+</body>
+</html>
